@@ -1,0 +1,5 @@
+./surreal-ls/bindings/parser.c
+./surreal-ls/bindings/tree_sitter/parser.h
+
+./tree-sitter-surql/src/parser.c
+./tree-sitter-surql/src/tree_sitter/parser.h
