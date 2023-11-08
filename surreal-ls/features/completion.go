@@ -158,12 +158,6 @@ func IsCrudStatement(node *sitter.Node) bool {
 	return false
 }
 
-func GetSuggestions(node *sitter.Node) []protocol.CompletionItem {
-	if IsCrudStatement(node) {
-	}
-	return []protocol.CompletionItem{}
-}
-
 func ShouldExpectTableName(node *sitter.Node) bool {
 	if node.Type() == "identifier" && node.Parent().Type() == "from_part" {
 		return true
