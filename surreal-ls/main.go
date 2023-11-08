@@ -18,7 +18,7 @@ import (
 	_ "github.com/tliron/commonlog/simple"
 )
 
-const lsName = "mylang"
+const lsName = "surreal-ls"
 
 var (
 	Version string = "0.0.1"
