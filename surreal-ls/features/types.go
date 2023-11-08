@@ -32,18 +32,32 @@ func (s StringType) String() string {
 	return "string"
 }
 
-type NumberType struct{}
+type IntType struct{}
 
-func (s NumberType) IsInstanceOf(t ValueType) bool {
+func (s IntType) IsInstanceOf(t ValueType) bool {
 	if t.String() == "any" {
 		return true
 	}
-	_, ok := t.(NumberType)
+	_, ok := t.(IntType)
 	return ok
 }
 
-func (s NumberType) String() string {
-	return "number"
+func (s IntType) String() string {
+	return "int"
+}
+
+type FloatType struct{}
+
+func (s FloatType) IsInstanceOf(t ValueType) bool {
+	if t.String() == "any" {
+		return true
+	}
+	_, ok := t.(FloatType)
+	return ok
+}
+
+func (s FloatType) String() string {
+	return "float"
 }
 
 type BooleanType struct{}
