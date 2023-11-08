@@ -36,9 +36,6 @@ func ParseArrayType(node *sitter.Node) ValueType {
 	return ArrayType{innerType}
 }
 
-func ParseObjectType(node *sitter.Node) ValueType {
-}
-
 func ParseType(node *sitter.Node) ValueType {
 	if node.Type() == "array" {
 		return ParseArrayType(node)
