@@ -8,27 +8,11 @@
       "required": true,
       "types": [
         {
-          "type": "addition_operation",
-          "named": true
-        },
-        {
-          "type": "and_operation",
-          "named": true
-        },
-        {
           "type": "array",
           "named": true
         },
         {
           "type": "boolean",
-          "named": true
-        },
-        {
-          "type": "division_operation",
-          "named": true
-        },
-        {
-          "type": "equality_operation",
           "named": true
         },
         {
@@ -40,19 +24,7 @@
           "named": true
         },
         {
-          "type": "greater_than_operation",
-          "named": true
-        },
-        {
-          "type": "greater_than_or_equal_to_operation",
-          "named": true
-        },
-        {
           "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "inequality_operation",
           "named": true
         },
         {
@@ -60,23 +32,7 @@
           "named": true
         },
         {
-          "type": "less_than_operation",
-          "named": true
-        },
-        {
-          "type": "less_than_or_equal_to_operation",
-          "named": true
-        },
-        {
-          "type": "multiplication_operation",
-          "named": true
-        },
-        {
           "type": "object",
-          "named": true
-        },
-        {
-          "type": "or_operation",
           "named": true
         },
         {
@@ -85,10 +41,6 @@
         },
         {
           "type": "string",
-          "named": true
-        },
-        {
-          "type": "subtraction_operation",
           "named": true
         },
         {
@@ -107,31 +59,11 @@
       "required": true,
       "types": [
         {
-          "type": "addition_operation",
-          "named": true
-        },
-        {
-          "type": "and_operation",
-          "named": true
-        },
-        {
-          "type": "and_token",
-          "named": true
-        },
-        {
           "type": "array",
           "named": true
         },
         {
           "type": "boolean",
-          "named": true
-        },
-        {
-          "type": "division_operation",
-          "named": true
-        },
-        {
-          "type": "equality_operation",
           "named": true
         },
         {
@@ -143,19 +75,7 @@
           "named": true
         },
         {
-          "type": "greater_than_operation",
-          "named": true
-        },
-        {
-          "type": "greater_than_or_equal_to_operation",
-          "named": true
-        },
-        {
           "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "inequality_operation",
           "named": true
         },
         {
@@ -163,23 +83,7 @@
           "named": true
         },
         {
-          "type": "less_than_operation",
-          "named": true
-        },
-        {
-          "type": "less_than_or_equal_to_operation",
-          "named": true
-        },
-        {
-          "type": "multiplication_operation",
-          "named": true
-        },
-        {
           "type": "object",
-          "named": true
-        },
-        {
-          "type": "or_operation",
           "named": true
         },
         {
@@ -188,10 +92,6 @@
         },
         {
           "type": "string",
-          "named": true
-        },
-        {
-          "type": "subtraction_operation",
           "named": true
         },
         {
@@ -210,27 +110,11 @@
       "required": false,
       "types": [
         {
-          "type": "addition_operation",
-          "named": true
-        },
-        {
-          "type": "and_operation",
-          "named": true
-        },
-        {
           "type": "array",
           "named": true
         },
         {
           "type": "boolean",
-          "named": true
-        },
-        {
-          "type": "division_operation",
-          "named": true
-        },
-        {
-          "type": "equality_operation",
           "named": true
         },
         {
@@ -242,19 +126,7 @@
           "named": true
         },
         {
-          "type": "greater_than_operation",
-          "named": true
-        },
-        {
-          "type": "greater_than_or_equal_to_operation",
-          "named": true
-        },
-        {
           "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "inequality_operation",
           "named": true
         },
         {
@@ -262,23 +134,7 @@
           "named": true
         },
         {
-          "type": "less_than_operation",
-          "named": true
-        },
-        {
-          "type": "less_than_or_equal_to_operation",
-          "named": true
-        },
-        {
-          "type": "multiplication_operation",
-          "named": true
-        },
-        {
           "type": "object",
-          "named": true
-        },
-        {
-          "type": "or_operation",
           "named": true
         },
         {
@@ -290,26 +146,7 @@
           "named": true
         },
         {
-          "type": "subtraction_operation",
-          "named": true
-        },
-        {
           "type": "variable",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "array_type",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "type_name",
           "named": true
         }
       ]
@@ -321,39 +158,19 @@
     "fields": {}
   },
   {
-    "type": "content_part",
+    "type": "content",
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
-      "required": true,
+      "multiple": false,
+      "required": false,
       "types": [
-        {
-          "type": "addition_operation",
-          "named": true
-        },
-        {
-          "type": "and_operation",
-          "named": true
-        },
         {
           "type": "array",
           "named": true
         },
         {
           "type": "boolean",
-          "named": true
-        },
-        {
-          "type": "content_token",
-          "named": true
-        },
-        {
-          "type": "division_operation",
-          "named": true
-        },
-        {
-          "type": "equality_operation",
           "named": true
         },
         {
@@ -365,19 +182,7 @@
           "named": true
         },
         {
-          "type": "greater_than_operation",
-          "named": true
-        },
-        {
-          "type": "greater_than_or_equal_to_operation",
-          "named": true
-        },
-        {
           "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "inequality_operation",
           "named": true
         },
         {
@@ -385,23 +190,7 @@
           "named": true
         },
         {
-          "type": "less_than_operation",
-          "named": true
-        },
-        {
-          "type": "less_than_or_equal_to_operation",
-          "named": true
-        },
-        {
-          "type": "multiplication_operation",
-          "named": true
-        },
-        {
           "type": "object",
-          "named": true
-        },
-        {
-          "type": "or_operation",
           "named": true
         },
         {
@@ -413,10 +202,6 @@
           "named": true
         },
         {
-          "type": "subtraction_operation",
-          "named": true
-        },
-        {
           "type": "variable",
           "named": true
         }
@@ -424,17 +209,13 @@
     }
   },
   {
-    "type": "create_part",
+    "type": "create",
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
-      "required": true,
+      "multiple": false,
+      "required": false,
       "types": [
-        {
-          "type": "create_token",
-          "named": true
-        },
         {
           "type": "identifier",
           "named": true
@@ -443,7 +224,7 @@
     }
   },
   {
-    "type": "crud_statement",
+    "type": "create_statement",
     "named": true,
     "fields": {},
     "children": {
@@ -451,38 +232,22 @@
       "required": true,
       "types": [
         {
-          "type": "content_part",
+          "type": "content",
           "named": true
         },
         {
-          "type": "create_part",
+          "type": "create",
           "named": true
         },
         {
-          "type": "delete_part",
-          "named": true
-        },
-        {
-          "type": "from_part",
-          "named": true
-        },
-        {
-          "type": "select_part",
-          "named": true
-        },
-        {
-          "type": "update_part",
-          "named": true
-        },
-        {
-          "type": "where_part",
+          "type": "filter",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "definition_statement",
+    "type": "define_field_statement",
     "named": true,
     "fields": {},
     "children": {
@@ -490,46 +255,64 @@
       "required": true,
       "types": [
         {
-          "type": "define_token",
+          "type": "field",
           "named": true
         },
         {
-          "type": "field_part",
+          "type": "on",
           "named": true
         },
         {
-          "type": "function_definition_statement",
-          "named": true
-        },
-        {
-          "type": "on_part",
-          "named": true
-        },
-        {
-          "type": "table_part",
-          "named": true
-        },
-        {
-          "type": "type_part",
+          "type": "type",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "delete_part",
+    "type": "define_table_statement",
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
-      "required": true,
+      "multiple": false,
+      "required": false,
       "types": [
-        {
-          "type": "delete_token",
-          "named": true
-        },
         {
           "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "delete",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "delete_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "delete",
+          "named": true
+        },
+        {
+          "type": "filter",
           "named": true
         }
       ]
@@ -544,27 +327,11 @@
       "required": true,
       "types": [
         {
-          "type": "addition_operation",
-          "named": true
-        },
-        {
-          "type": "and_operation",
-          "named": true
-        },
-        {
           "type": "array",
           "named": true
         },
         {
           "type": "boolean",
-          "named": true
-        },
-        {
-          "type": "division_operation",
-          "named": true
-        },
-        {
-          "type": "equality_operation",
           "named": true
         },
         {
@@ -576,19 +343,7 @@
           "named": true
         },
         {
-          "type": "greater_than_operation",
-          "named": true
-        },
-        {
-          "type": "greater_than_or_equal_to_operation",
-          "named": true
-        },
-        {
           "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "inequality_operation",
           "named": true
         },
         {
@@ -596,23 +351,7 @@
           "named": true
         },
         {
-          "type": "less_than_operation",
-          "named": true
-        },
-        {
-          "type": "less_than_or_equal_to_operation",
-          "named": true
-        },
-        {
-          "type": "multiplication_operation",
-          "named": true
-        },
-        {
           "type": "object",
-          "named": true
-        },
-        {
-          "type": "or_operation",
           "named": true
         },
         {
@@ -621,10 +360,6 @@
         },
         {
           "type": "string",
-          "named": true
-        },
-        {
-          "type": "subtraction_operation",
           "named": true
         },
         {
@@ -643,27 +378,11 @@
       "required": true,
       "types": [
         {
-          "type": "addition_operation",
-          "named": true
-        },
-        {
-          "type": "and_operation",
-          "named": true
-        },
-        {
           "type": "array",
           "named": true
         },
         {
           "type": "boolean",
-          "named": true
-        },
-        {
-          "type": "division_operation",
-          "named": true
-        },
-        {
-          "type": "equality_operation",
           "named": true
         },
         {
@@ -675,19 +394,7 @@
           "named": true
         },
         {
-          "type": "greater_than_operation",
-          "named": true
-        },
-        {
-          "type": "greater_than_or_equal_to_operation",
-          "named": true
-        },
-        {
           "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "inequality_operation",
           "named": true
         },
         {
@@ -695,23 +402,7 @@
           "named": true
         },
         {
-          "type": "less_than_operation",
-          "named": true
-        },
-        {
-          "type": "less_than_or_equal_to_operation",
-          "named": true
-        },
-        {
-          "type": "multiplication_operation",
-          "named": true
-        },
-        {
           "type": "object",
-          "named": true
-        },
-        {
-          "type": "or_operation",
           "named": true
         },
         {
@@ -723,10 +414,6 @@
           "named": true
         },
         {
-          "type": "subtraction_operation",
-          "named": true
-        },
-        {
           "type": "variable",
           "named": true
         }
@@ -734,17 +421,28 @@
     }
   },
   {
-    "type": "field_part",
+    "type": "field",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "field_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "field_name",
     "named": true,
     "fields": {},
     "children": {
       "multiple": true,
       "required": true,
       "types": [
-        {
-          "type": "field_token",
-          "named": true
-        },
         {
           "type": "identifier",
           "named": true
@@ -753,7 +451,7 @@
     }
   },
   {
-    "type": "from_part",
+    "type": "filter",
     "named": true,
     "fields": {},
     "children": {
@@ -761,45 +459,34 @@
       "required": true,
       "types": [
         {
-          "type": "from_token",
+          "type": "limit",
           "named": true
         },
+        {
+          "type": "order_by",
+          "named": true
+        },
+        {
+          "type": "skip",
+          "named": true
+        },
+        {
+          "type": "where",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "from",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
         {
           "type": "identifier",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "function_arguments_part",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "function_param",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "function_body_part",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "crud_statement",
-          "named": true
-        },
-        {
-          "type": "definition_statement",
           "named": true
         }
       ]
@@ -814,7 +501,7 @@
       "required": true,
       "types": [
         {
-          "type": "function_name",
+          "type": "identifier",
           "named": true
         },
         {
@@ -825,7 +512,7 @@
     }
   },
   {
-    "type": "function_definition_statement",
+    "type": "generic_type",
     "named": true,
     "fields": {},
     "children": {
@@ -833,77 +520,11 @@
       "required": true,
       "types": [
         {
-          "type": "function_arguments_part",
+          "type": "identifier",
           "named": true
         },
         {
-          "type": "function_body_part",
-          "named": true
-        },
-        {
-          "type": "function_name_part",
-          "named": true
-        },
-        {
-          "type": "function_return_type_part",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "function_name",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "function_name_part",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "function_name",
-          "named": true
-        },
-        {
-          "type": "function_token",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "function_param",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "type_name",
-          "named": true
-        },
-        {
-          "type": "variable",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "function_return_type_part",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "type_name",
+          "type": "type_identifier",
           "named": true
         }
       ]
@@ -918,27 +539,11 @@
       "required": true,
       "types": [
         {
-          "type": "addition_operation",
-          "named": true
-        },
-        {
-          "type": "and_operation",
-          "named": true
-        },
-        {
           "type": "array",
           "named": true
         },
         {
           "type": "boolean",
-          "named": true
-        },
-        {
-          "type": "division_operation",
-          "named": true
-        },
-        {
-          "type": "equality_operation",
           "named": true
         },
         {
@@ -950,19 +555,7 @@
           "named": true
         },
         {
-          "type": "greater_than_operation",
-          "named": true
-        },
-        {
-          "type": "greater_than_or_equal_to_operation",
-          "named": true
-        },
-        {
           "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "inequality_operation",
           "named": true
         },
         {
@@ -970,23 +563,7 @@
           "named": true
         },
         {
-          "type": "less_than_operation",
-          "named": true
-        },
-        {
-          "type": "less_than_or_equal_to_operation",
-          "named": true
-        },
-        {
-          "type": "multiplication_operation",
-          "named": true
-        },
-        {
           "type": "object",
-          "named": true
-        },
-        {
-          "type": "or_operation",
           "named": true
         },
         {
@@ -995,10 +572,6 @@
         },
         {
           "type": "string",
-          "named": true
-        },
-        {
-          "type": "subtraction_operation",
           "named": true
         },
         {
@@ -1017,27 +590,11 @@
       "required": true,
       "types": [
         {
-          "type": "addition_operation",
-          "named": true
-        },
-        {
-          "type": "and_operation",
-          "named": true
-        },
-        {
           "type": "array",
           "named": true
         },
         {
           "type": "boolean",
-          "named": true
-        },
-        {
-          "type": "division_operation",
-          "named": true
-        },
-        {
-          "type": "equality_operation",
           "named": true
         },
         {
@@ -1049,19 +606,7 @@
           "named": true
         },
         {
-          "type": "greater_than_operation",
-          "named": true
-        },
-        {
-          "type": "greater_than_or_equal_to_operation",
-          "named": true
-        },
-        {
           "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "inequality_operation",
           "named": true
         },
         {
@@ -1069,23 +614,7 @@
           "named": true
         },
         {
-          "type": "less_than_operation",
-          "named": true
-        },
-        {
-          "type": "less_than_or_equal_to_operation",
-          "named": true
-        },
-        {
-          "type": "multiplication_operation",
-          "named": true
-        },
-        {
           "type": "object",
-          "named": true
-        },
-        {
-          "type": "or_operation",
           "named": true
         },
         {
@@ -1094,10 +623,6 @@
         },
         {
           "type": "string",
-          "named": true
-        },
-        {
-          "type": "subtraction_operation",
           "named": true
         },
         {
@@ -1108,11 +633,6 @@
     }
   },
   {
-    "type": "identifier",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "inequality_operation",
     "named": true,
     "fields": {},
@@ -1121,27 +641,11 @@
       "required": true,
       "types": [
         {
-          "type": "addition_operation",
-          "named": true
-        },
-        {
-          "type": "and_operation",
-          "named": true
-        },
-        {
           "type": "array",
           "named": true
         },
         {
           "type": "boolean",
-          "named": true
-        },
-        {
-          "type": "division_operation",
-          "named": true
-        },
-        {
-          "type": "equality_operation",
           "named": true
         },
         {
@@ -1153,19 +657,7 @@
           "named": true
         },
         {
-          "type": "greater_than_operation",
-          "named": true
-        },
-        {
-          "type": "greater_than_or_equal_to_operation",
-          "named": true
-        },
-        {
           "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "inequality_operation",
           "named": true
         },
         {
@@ -1173,23 +665,7 @@
           "named": true
         },
         {
-          "type": "less_than_operation",
-          "named": true
-        },
-        {
-          "type": "less_than_or_equal_to_operation",
-          "named": true
-        },
-        {
-          "type": "multiplication_operation",
-          "named": true
-        },
-        {
           "type": "object",
-          "named": true
-        },
-        {
-          "type": "or_operation",
           "named": true
         },
         {
@@ -1201,11 +677,132 @@
           "named": true
         },
         {
-          "type": "subtraction_operation",
+          "type": "variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "invalid_define_field_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "field",
+          "named": true
+        },
+        {
+          "type": "on",
+          "named": true
+        },
+        {
+          "type": "type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "invalid_object_entry",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "array",
+          "named": true
+        },
+        {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "object",
+          "named": true
+        },
+        {
+          "type": "property_access",
+          "named": true
+        },
+        {
+          "type": "string",
           "named": true
         },
         {
           "type": "variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "invalid_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "content",
+          "named": true
+        },
+        {
+          "type": "create",
+          "named": true
+        },
+        {
+          "type": "delete",
+          "named": true
+        },
+        {
+          "type": "from",
+          "named": true
+        },
+        {
+          "type": "limit",
+          "named": true
+        },
+        {
+          "type": "order_by",
+          "named": true
+        },
+        {
+          "type": "select",
+          "named": true
+        },
+        {
+          "type": "skip",
+          "named": true
+        },
+        {
+          "type": "update",
+          "named": true
+        },
+        {
+          "type": "where",
           "named": true
         }
       ]
@@ -1220,27 +817,11 @@
       "required": true,
       "types": [
         {
-          "type": "addition_operation",
-          "named": true
-        },
-        {
-          "type": "and_operation",
-          "named": true
-        },
-        {
           "type": "array",
           "named": true
         },
         {
           "type": "boolean",
-          "named": true
-        },
-        {
-          "type": "division_operation",
-          "named": true
-        },
-        {
-          "type": "equality_operation",
           "named": true
         },
         {
@@ -1252,19 +833,7 @@
           "named": true
         },
         {
-          "type": "greater_than_operation",
-          "named": true
-        },
-        {
-          "type": "greater_than_or_equal_to_operation",
-          "named": true
-        },
-        {
           "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "inequality_operation",
           "named": true
         },
         {
@@ -1272,23 +841,7 @@
           "named": true
         },
         {
-          "type": "less_than_operation",
-          "named": true
-        },
-        {
-          "type": "less_than_or_equal_to_operation",
-          "named": true
-        },
-        {
-          "type": "multiplication_operation",
-          "named": true
-        },
-        {
           "type": "object",
-          "named": true
-        },
-        {
-          "type": "or_operation",
           "named": true
         },
         {
@@ -1297,10 +850,6 @@
         },
         {
           "type": "string",
-          "named": true
-        },
-        {
-          "type": "subtraction_operation",
           "named": true
         },
         {
@@ -1319,27 +868,11 @@
       "required": true,
       "types": [
         {
-          "type": "addition_operation",
-          "named": true
-        },
-        {
-          "type": "and_operation",
-          "named": true
-        },
-        {
           "type": "array",
           "named": true
         },
         {
           "type": "boolean",
-          "named": true
-        },
-        {
-          "type": "division_operation",
-          "named": true
-        },
-        {
-          "type": "equality_operation",
           "named": true
         },
         {
@@ -1351,19 +884,7 @@
           "named": true
         },
         {
-          "type": "greater_than_operation",
-          "named": true
-        },
-        {
-          "type": "greater_than_or_equal_to_operation",
-          "named": true
-        },
-        {
           "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "inequality_operation",
           "named": true
         },
         {
@@ -1371,23 +892,7 @@
           "named": true
         },
         {
-          "type": "less_than_operation",
-          "named": true
-        },
-        {
-          "type": "less_than_or_equal_to_operation",
-          "named": true
-        },
-        {
-          "type": "multiplication_operation",
-          "named": true
-        },
-        {
           "type": "object",
-          "named": true
-        },
-        {
-          "type": "or_operation",
           "named": true
         },
         {
@@ -1399,7 +904,54 @@
           "named": true
         },
         {
-          "type": "subtraction_operation",
+          "type": "variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "limit",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "array",
+          "named": true
+        },
+        {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "object",
+          "named": true
+        },
+        {
+          "type": "property_access",
+          "named": true
+        },
+        {
+          "type": "string",
           "named": true
         },
         {
@@ -1418,27 +970,11 @@
       "required": true,
       "types": [
         {
-          "type": "addition_operation",
-          "named": true
-        },
-        {
-          "type": "and_operation",
-          "named": true
-        },
-        {
           "type": "array",
           "named": true
         },
         {
           "type": "boolean",
-          "named": true
-        },
-        {
-          "type": "division_operation",
-          "named": true
-        },
-        {
-          "type": "equality_operation",
           "named": true
         },
         {
@@ -1450,19 +986,7 @@
           "named": true
         },
         {
-          "type": "greater_than_operation",
-          "named": true
-        },
-        {
-          "type": "greater_than_or_equal_to_operation",
-          "named": true
-        },
-        {
           "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "inequality_operation",
           "named": true
         },
         {
@@ -1470,23 +994,7 @@
           "named": true
         },
         {
-          "type": "less_than_operation",
-          "named": true
-        },
-        {
-          "type": "less_than_or_equal_to_operation",
-          "named": true
-        },
-        {
-          "type": "multiplication_operation",
-          "named": true
-        },
-        {
           "type": "object",
-          "named": true
-        },
-        {
-          "type": "or_operation",
           "named": true
         },
         {
@@ -1495,10 +1003,6 @@
         },
         {
           "type": "string",
-          "named": true
-        },
-        {
-          "type": "subtraction_operation",
           "named": true
         },
         {
@@ -1517,6 +1021,10 @@
       "required": false,
       "types": [
         {
+          "type": "invalid_object_entry",
+          "named": true
+        },
+        {
           "type": "object_entry",
           "named": true
         }
@@ -1532,27 +1040,11 @@
       "required": true,
       "types": [
         {
-          "type": "addition_operation",
-          "named": true
-        },
-        {
-          "type": "and_operation",
-          "named": true
-        },
-        {
           "type": "array",
           "named": true
         },
         {
           "type": "boolean",
-          "named": true
-        },
-        {
-          "type": "division_operation",
-          "named": true
-        },
-        {
-          "type": "equality_operation",
           "named": true
         },
         {
@@ -1564,19 +1056,7 @@
           "named": true
         },
         {
-          "type": "greater_than_operation",
-          "named": true
-        },
-        {
-          "type": "greater_than_or_equal_to_operation",
-          "named": true
-        },
-        {
           "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "inequality_operation",
           "named": true
         },
         {
@@ -1584,23 +1064,7 @@
           "named": true
         },
         {
-          "type": "less_than_operation",
-          "named": true
-        },
-        {
-          "type": "less_than_or_equal_to_operation",
-          "named": true
-        },
-        {
-          "type": "multiplication_operation",
-          "named": true
-        },
-        {
           "type": "object",
-          "named": true
-        },
-        {
-          "type": "or_operation",
           "named": true
         },
         {
@@ -1612,10 +1076,6 @@
           "named": true
         },
         {
-          "type": "subtraction_operation",
-          "named": true
-        },
-        {
           "type": "variable",
           "named": true
         }
@@ -1623,137 +1083,30 @@
     }
   },
   {
-    "type": "on_part",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "on_token",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "optional_type",
+    "type": "on",
     "named": true,
     "fields": {},
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
         {
-          "type": "type_name",
+          "type": "identifier",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "or_operation",
+    "type": "order_by",
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
-      "required": true,
+      "multiple": false,
+      "required": false,
       "types": [
         {
-          "type": "addition_operation",
-          "named": true
-        },
-        {
-          "type": "and_operation",
-          "named": true
-        },
-        {
-          "type": "array",
-          "named": true
-        },
-        {
-          "type": "boolean",
-          "named": true
-        },
-        {
-          "type": "division_operation",
-          "named": true
-        },
-        {
-          "type": "equality_operation",
-          "named": true
-        },
-        {
-          "type": "float",
-          "named": true
-        },
-        {
-          "type": "function_call",
-          "named": true
-        },
-        {
-          "type": "greater_than_operation",
-          "named": true
-        },
-        {
-          "type": "greater_than_or_equal_to_operation",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "inequality_operation",
-          "named": true
-        },
-        {
-          "type": "integer",
-          "named": true
-        },
-        {
-          "type": "less_than_operation",
-          "named": true
-        },
-        {
-          "type": "less_than_or_equal_to_operation",
-          "named": true
-        },
-        {
-          "type": "multiplication_operation",
-          "named": true
-        },
-        {
-          "type": "object",
-          "named": true
-        },
-        {
-          "type": "or_operation",
-          "named": true
-        },
-        {
-          "type": "or_token",
-          "named": true
-        },
-        {
-          "type": "property_access",
-          "named": true
-        },
-        {
-          "type": "string",
-          "named": true
-        },
-        {
-          "type": "subtraction_operation",
-          "named": true
-        },
-        {
-          "type": "variable",
+          "type": "varargs",
           "named": true
         }
       ]
@@ -1768,27 +1121,11 @@
       "required": true,
       "types": [
         {
-          "type": "addition_operation",
-          "named": true
-        },
-        {
-          "type": "and_operation",
-          "named": true
-        },
-        {
           "type": "array",
           "named": true
         },
         {
           "type": "boolean",
-          "named": true
-        },
-        {
-          "type": "division_operation",
-          "named": true
-        },
-        {
-          "type": "equality_operation",
           "named": true
         },
         {
@@ -1800,19 +1137,7 @@
           "named": true
         },
         {
-          "type": "greater_than_operation",
-          "named": true
-        },
-        {
-          "type": "greater_than_or_equal_to_operation",
-          "named": true
-        },
-        {
           "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "inequality_operation",
           "named": true
         },
         {
@@ -1820,23 +1145,7 @@
           "named": true
         },
         {
-          "type": "less_than_operation",
-          "named": true
-        },
-        {
-          "type": "less_than_or_equal_to_operation",
-          "named": true
-        },
-        {
-          "type": "multiplication_operation",
-          "named": true
-        },
-        {
           "type": "object",
-          "named": true
-        },
-        {
-          "type": "or_operation",
           "named": true
         },
         {
@@ -1848,10 +1157,6 @@
           "named": true
         },
         {
-          "type": "subtraction_operation",
-          "named": true
-        },
-        {
           "type": "variable",
           "named": true
         }
@@ -1859,7 +1164,22 @@
     }
   },
   {
-    "type": "select_part",
+    "type": "select",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "varargs",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "select_statement",
     "named": true,
     "fields": {},
     "children": {
@@ -1867,11 +1187,66 @@
       "required": true,
       "types": [
         {
-          "type": "select_token",
+          "type": "filter",
           "named": true
         },
         {
-          "type": "varargs",
+          "type": "from",
+          "named": true
+        },
+        {
+          "type": "select",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "skip",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "array",
+          "named": true
+        },
+        {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "object",
+          "named": true
+        },
+        {
+          "type": "property_access",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "variable",
           "named": true
         }
       ]
@@ -1886,11 +1261,35 @@
       "required": false,
       "types": [
         {
-          "type": "crud_statement",
+          "type": "create_statement",
           "named": true
         },
         {
-          "type": "definition_statement",
+          "type": "define_field_statement",
+          "named": true
+        },
+        {
+          "type": "define_table_statement",
+          "named": true
+        },
+        {
+          "type": "delete_statement",
+          "named": true
+        },
+        {
+          "type": "invalid_define_field_statement",
+          "named": true
+        },
+        {
+          "type": "invalid_statement",
+          "named": true
+        },
+        {
+          "type": "select_statement",
+          "named": true
+        },
+        {
+          "type": "update_statement",
           "named": true
         }
       ]
@@ -1905,27 +1304,11 @@
       "required": true,
       "types": [
         {
-          "type": "addition_operation",
-          "named": true
-        },
-        {
-          "type": "and_operation",
-          "named": true
-        },
-        {
           "type": "array",
           "named": true
         },
         {
           "type": "boolean",
-          "named": true
-        },
-        {
-          "type": "division_operation",
-          "named": true
-        },
-        {
-          "type": "equality_operation",
           "named": true
         },
         {
@@ -1937,19 +1320,7 @@
           "named": true
         },
         {
-          "type": "greater_than_operation",
-          "named": true
-        },
-        {
-          "type": "greater_than_or_equal_to_operation",
-          "named": true
-        },
-        {
           "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "inequality_operation",
           "named": true
         },
         {
@@ -1957,23 +1328,7 @@
           "named": true
         },
         {
-          "type": "less_than_operation",
-          "named": true
-        },
-        {
-          "type": "less_than_or_equal_to_operation",
-          "named": true
-        },
-        {
-          "type": "multiplication_operation",
-          "named": true
-        },
-        {
           "type": "object",
-          "named": true
-        },
-        {
-          "type": "or_operation",
           "named": true
         },
         {
@@ -1985,10 +1340,6 @@
           "named": true
         },
         {
-          "type": "subtraction_operation",
-          "named": true
-        },
-        {
           "type": "variable",
           "named": true
         }
@@ -1996,26 +1347,7 @@
     }
   },
   {
-    "type": "table_part",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "table_token",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "type_name",
+    "type": "type",
     "named": true,
     "fields": {},
     "children": {
@@ -2023,49 +1355,64 @@
       "required": false,
       "types": [
         {
-          "type": "array_type",
-          "named": true
-        },
-        {
-          "type": "optional_type",
+          "type": "type_identifier",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "type_part",
+    "type": "type_identifier",
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
-          "type": "type_name",
+          "type": "generic_type",
           "named": true
         },
         {
-          "type": "type_token",
+          "type": "identifier",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "update_part",
+    "type": "update",
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
-      "required": true,
+      "multiple": false,
+      "required": false,
       "types": [
         {
           "type": "identifier",
           "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "update_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "content",
+          "named": true
         },
         {
-          "type": "update_token",
+          "type": "filter",
+          "named": true
+        },
+        {
+          "type": "update",
           "named": true
         }
       ]
@@ -2080,27 +1427,11 @@
       "required": true,
       "types": [
         {
-          "type": "addition_operation",
-          "named": true
-        },
-        {
-          "type": "and_operation",
-          "named": true
-        },
-        {
           "type": "array",
           "named": true
         },
         {
           "type": "boolean",
-          "named": true
-        },
-        {
-          "type": "division_operation",
-          "named": true
-        },
-        {
-          "type": "equality_operation",
           "named": true
         },
         {
@@ -2112,19 +1443,7 @@
           "named": true
         },
         {
-          "type": "greater_than_operation",
-          "named": true
-        },
-        {
-          "type": "greater_than_or_equal_to_operation",
-          "named": true
-        },
-        {
           "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "inequality_operation",
           "named": true
         },
         {
@@ -2132,23 +1451,7 @@
           "named": true
         },
         {
-          "type": "less_than_operation",
-          "named": true
-        },
-        {
-          "type": "less_than_or_equal_to_operation",
-          "named": true
-        },
-        {
-          "type": "multiplication_operation",
-          "named": true
-        },
-        {
           "type": "object",
-          "named": true
-        },
-        {
-          "type": "or_operation",
           "named": true
         },
         {
@@ -2157,10 +1460,6 @@
         },
         {
           "type": "string",
-          "named": true
-        },
-        {
-          "type": "subtraction_operation",
           "named": true
         },
         {
@@ -2186,35 +1485,19 @@
     }
   },
   {
-    "type": "where_part",
+    "type": "where",
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
-      "required": true,
+      "multiple": false,
+      "required": false,
       "types": [
-        {
-          "type": "addition_operation",
-          "named": true
-        },
-        {
-          "type": "and_operation",
-          "named": true
-        },
         {
           "type": "array",
           "named": true
         },
         {
           "type": "boolean",
-          "named": true
-        },
-        {
-          "type": "division_operation",
-          "named": true
-        },
-        {
-          "type": "equality_operation",
           "named": true
         },
         {
@@ -2226,19 +1509,7 @@
           "named": true
         },
         {
-          "type": "greater_than_operation",
-          "named": true
-        },
-        {
-          "type": "greater_than_or_equal_to_operation",
-          "named": true
-        },
-        {
           "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "inequality_operation",
           "named": true
         },
         {
@@ -2246,23 +1517,7 @@
           "named": true
         },
         {
-          "type": "less_than_operation",
-          "named": true
-        },
-        {
-          "type": "less_than_or_equal_to_operation",
-          "named": true
-        },
-        {
-          "type": "multiplication_operation",
-          "named": true
-        },
-        {
           "type": "object",
-          "named": true
-        },
-        {
-          "type": "or_operation",
           "named": true
         },
         {
@@ -2274,19 +1529,15 @@
           "named": true
         },
         {
-          "type": "subtraction_operation",
-          "named": true
-        },
-        {
           "type": "variable",
-          "named": true
-        },
-        {
-          "type": "where_token",
           "named": true
         }
       ]
     }
+  },
+  {
+    "type": "!",
+    "named": false
   },
   {
     "type": "!=",
@@ -2333,10 +1584,6 @@
     "named": false
   },
   {
-    "type": "::",
-    "named": false
-  },
-  {
     "type": ";",
     "named": false
   },
@@ -2369,55 +1616,43 @@
     "named": false
   },
   {
-    "type": "and_token",
-    "named": true
-  },
-  {
-    "type": "array",
+    "type": "and",
     "named": false
   },
   {
-    "type": "boolean",
+    "type": "content",
     "named": false
   },
   {
-    "type": "content_token",
-    "named": true
+    "type": "create",
+    "named": false
   },
   {
-    "type": "create_token",
-    "named": true
+    "type": "define",
+    "named": false
   },
   {
-    "type": "define_token",
-    "named": true
-  },
-  {
-    "type": "delete_token",
-    "named": true
+    "type": "delete",
+    "named": false
   },
   {
     "type": "false",
     "named": false
   },
   {
-    "type": "field_token",
-    "named": true
-  },
-  {
-    "type": "float",
-    "named": true
-  },
-  {
-    "type": "float",
+    "type": "field",
     "named": false
   },
   {
-    "type": "from_token",
+    "type": "float",
     "named": true
   },
   {
-    "type": "function_token",
+    "type": "from",
+    "named": false
+  },
+  {
+    "type": "identifier",
     "named": true
   },
   {
@@ -2425,52 +1660,52 @@
     "named": true
   },
   {
-    "type": "integer",
+    "type": "limit",
     "named": false
   },
   {
-    "type": "on_token",
-    "named": true
-  },
-  {
-    "type": "optional",
+    "type": "on",
     "named": false
   },
   {
-    "type": "or_token",
-    "named": true
+    "type": "or",
+    "named": false
   },
   {
-    "type": "select_token",
-    "named": true
+    "type": "order by",
+    "named": false
+  },
+  {
+    "type": "select",
+    "named": false
+  },
+  {
+    "type": "skip",
+    "named": false
   },
   {
     "type": "string",
     "named": true
   },
   {
-    "type": "string",
+    "type": "table",
     "named": false
-  },
-  {
-    "type": "table_token",
-    "named": true
   },
   {
     "type": "true",
     "named": false
   },
   {
-    "type": "type_token",
-    "named": true
+    "type": "type",
+    "named": false
   },
   {
-    "type": "update_token",
-    "named": true
+    "type": "update",
+    "named": false
   },
   {
-    "type": "where_token",
-    "named": true
+    "type": "where",
+    "named": false
   },
   {
     "type": "{",
