@@ -2,28 +2,15 @@ module.exports = grammar({
   name: "surql",
 
   rules: {
-    source_file: ($) => repeat(seq($._statement, ";")),
+    source_file: ($) => repeat($._statement),
 
-    _statement: ($) =>
-      choice($._crud_statement, $._define_statement, $.invalid_statement),
-
-    _crud_statement: ($) =>
-      choice(
-        $.create_statement,
-        $.update_statement,
-        $.delete_statement,
-        $.select_statement,
-      ),
-
-    create_statement: ($) => seq($.create, $.content, optional($.filter)),
-    update_statement: ($) => seq($.update, $.content, optional($.filter)),
-    delete_statement: ($) => seq($.delete, optional($.filter)),
-    select_statement: ($) => seq($.select, $.from, optional($.filter)),
+    statement: ($) => repeat1($._statement_parts),
 
     create: ($) => seq("create", optional($.identifier)),
     update: ($) => seq("update", optional($.identifier)),
     delete: ($) => seq("delete", optional($.identifier)),
     select: ($) => seq("select", optional($.varargs)),
+    return: ($) => seq("return", optional(choice($._value, $.statement))),
 
     from: ($) => seq("from", optional($.identifier)),
     content: ($) => seq("content", optional($._value)),
@@ -32,8 +19,6 @@ module.exports = grammar({
     order_by: ($) => seq("order by", optional($.varargs)),
     limit: ($) => seq("limit", optional($._value)),
     skip: ($) => seq("skip", optional($._value)),
-
-    filter: ($) => repeat1(choice($.where, $.order_by, $.limit, $.skip)),
 
     identifier: ($) => /[a-zA-Z_][a-zA-Z0-9_]*/,
 
@@ -46,6 +31,14 @@ module.exports = grammar({
     object_entry: ($) => seq($.identifier, ":", $._value),
     invalid_object_entry: ($) =>
       prec(-1, seq($.identifier, optional(":"), optional($._value))),
+
+    assignment: ($) =>
+      choice(
+        seq("let", $.variable, "=", choice($._value, $.statement)),
+        prec(-1, seq("let", $.variable, "=")),
+        prec(-2, seq("let", $.variable)),
+        prec(-3, "let"),
+      ),
 
     _object_entry: ($) =>
       choice($.object_entry, prec(-1, $.invalid_object_entry)),
@@ -60,7 +53,11 @@ module.exports = grammar({
 
     varargs: ($) => seq($._value, repeat(seq(",", $._value))),
 
-    function_call: ($) => seq($.identifier, "(", optional($.varargs), ")"),
+    function_call: ($) =>
+      seq($.function_identifier, "(", optional($.varargs), ")"),
+
+    function_identifier: ($) =>
+      seq($.identifier, repeat(seq("::", $.identifier))),
 
     field_name: ($) => seq($.identifier, repeat(seq(".", $.identifier))),
 
@@ -73,9 +70,13 @@ module.exports = grammar({
         $.array,
         $.object,
         $.identifier,
-        $.function_call,
         $.property_access,
+        $.array_access,
         $.variable,
+        $.bracketed_value,
+        $._operation,
+        $.function_call,
+        $.code_block,
       ),
 
     _operation: ($) =>
@@ -93,22 +94,26 @@ module.exports = grammar({
         $.and_operation,
       ),
 
-    addition_operation: ($) => prec.left(1, seq($._value, "+", $._value)),
-    subtraction_operation: ($) => prec.left(1, seq($._value, "-", $._value)),
-    multiplication_operation: ($) => prec.left(2, seq($._value, "*", $._value)),
-    division_operation: ($) => prec.left(2, seq($._value, "/", $._value)),
-    equality_operation: ($) => prec.left(3, seq($._value, "=", $._value)),
-    inequality_operation: ($) => prec.left(3, seq($._value, "!=", $._value)),
-    greater_than_operation: ($) => prec.left(3, seq($._value, ">", $._value)),
-    less_than_operation: ($) => prec.left(3, seq($._value, "<", $._value)),
+    bracketed_value: ($) => seq("(", $._value, ")"),
+
+    array_access: ($) => prec.left(0, seq($._value, "[", $._value, "]")),
+    property_access: ($) => prec.left(0, seq($._value, ".", $.identifier)),
+    multiplication_operation: ($) =>
+      prec.left(-1, seq($._value, "*", $._value)),
+    division_operation: ($) => prec.left(-1, seq($._value, "/", $._value)),
+    addition_operation: ($) => prec.left(-2, seq($._value, "+", $._value)),
+    subtraction_operation: ($) => prec.left(-2, seq($._value, "-", $._value)),
+    equality_operation: ($) => prec.left(-3, seq($._value, "=", $._value)),
+    inequality_operation: ($) => prec.left(-3, seq($._value, "!=", $._value)),
+    greater_than_operation: ($) => prec.left(-3, seq($._value, ">", $._value)),
+    less_than_operation: ($) => prec.left(-3, seq($._value, "<", $._value)),
     greater_than_or_equal_to_operation: ($) =>
-      prec.left(3, seq($._value, ">=", $._value)),
+      prec.left(-3, seq($._value, ">=", $._value)),
     less_than_or_equal_to_operation: ($) =>
-      prec.left(3, seq($._value, "<=", $._value)),
-    and_operation: ($) => prec.left(4, seq($._value, "and", $._value)),
-    or_operation: ($) => prec.left(5, seq($._value, "or", $._value)),
-    not_operation: ($) => prec.left(6, seq("!", $._value)),
-    property_access: ($) => prec.left(7, seq($._value, ".", $.identifier)),
+      prec.left(-3, seq($._value, "<=", $._value)),
+    and_operation: ($) => prec.left(-4, seq($._value, "and", $._value)),
+    or_operation: ($) => prec.left(-5, seq($._value, "or", $._value)),
+    not_operation: ($) => prec.left(-6, seq("!", $._value)),
 
     variable: ($) => seq("$", $.identifier),
 
@@ -126,16 +131,16 @@ module.exports = grammar({
           $.order_by,
           $.limit,
           $.skip,
+          $.define,
+          $.function,
+          $.define_table_statement,
+          $._define_field_statement,
         ),
       ),
 
-    invalid_statement: ($) => repeat1($._statement_parts),
+    _statement: ($) => seq(choice($.assignment, $.statement), ";"),
 
-    _define_statement: ($) =>
-      seq(
-        "define",
-        choice($.define_table_statement, $._define_field_statement),
-      ),
+    define: ($) => "define",
 
     define_table_statement: ($) => seq("table", optional($.identifier)),
     define_field_statement: ($) => seq($.field, $.on, $.type),
@@ -154,5 +159,26 @@ module.exports = grammar({
     generic_type: ($) => seq($.identifier, "<", $.type_identifier, ">"),
 
     table: ($) => seq("table", $.identifier),
+
+    function: ($) => seq("function", optional($.function_definition)),
+
+    function_definition: ($) =>
+      seq(
+        $.function_identifier,
+        $.function_arguments,
+        optional($.function_return_type),
+        $.code_block,
+      ),
+
+    function_return_type: ($) => seq(":", $.type_identifier),
+    code_block: ($) => prec(-1, seq("{", repeat($._statement), "}")),
+    function_argument: ($) => seq($.variable, ":", $.type_identifier),
+    function_arguments: ($) =>
+      seq(
+        "(",
+        repeat(seq($.function_argument, ",")),
+        optional($.function_argument),
+        ")",
+      ),
   },
 });
