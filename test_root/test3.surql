@@ -6,7 +6,7 @@ create thing content {
 select "thing" from thing;
 
 select "thing" create thing;
-
+ 
 select "thing" 
 from thing 
 where some_bool and some_int > 5 + 6 / 2 = true;
@@ -22,8 +22,14 @@ create thing content {
   some: "new thing",
 };
 
-define function some($some: string, $other: list<string>): string {
-};
+define function some($some: string, $other: array<string>): string {
+  return $some;
+}
+create something
 let $new = select "thing" from thing where some = $some;
+select some from thing;
 
-
+select some 
+from thing;
+select some
+from something

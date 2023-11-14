@@ -133,22 +133,18 @@ module.exports = grammar({
           $.skip,
           $.define,
           $.function,
-          $.define_table_statement,
-          $._define_field_statement,
+          $.table,
+          $.field,
+          $.on,
+          $.type,
         ),
       ),
 
-    _statement: ($) => seq(choice($.assignment, $.statement), ";"),
+    _statement: ($) => seq(choice($.assignment, $.statement, $.return), ";"),
 
     define: ($) => "define",
 
-    define_table_statement: ($) => seq("table", optional($.identifier)),
-    define_field_statement: ($) => seq($.field, $.on, $.type),
-    invalid_define_field_statement: ($) =>
-      prec(-1, seq($.field, optional($.on), optional($.type))),
-    _define_field_statement: ($) =>
-      choice($.define_field_statement, $.invalid_define_field_statement),
-
+    table: ($) => seq("table", optional($.identifier)),
     field: ($) => seq("field", optional($.field_name)),
     on: ($) => seq("on", optional($.identifier)),
     type: ($) => seq("type", optional($.type_identifier)),
@@ -165,9 +161,9 @@ module.exports = grammar({
     function_definition: ($) =>
       seq(
         $.function_identifier,
-        $.function_arguments,
+        optional($.function_arguments),
         optional($.function_return_type),
-        $.code_block,
+        optional($.code_block),
       ),
 
     function_return_type: ($) => seq(":", $.type_identifier),

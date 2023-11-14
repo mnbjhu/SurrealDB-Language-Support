@@ -85,7 +85,7 @@ func TextDocumentReferences(context *glsp.Context, params *protocol.ReferencePar
 }
 
 func FindTableDefinitions() []*sitter.Node {
-	query, err := sitter.NewQuery([]byte("(definition_statement (table_part (identifier) @table_name))"), bindings.GetLanguage())
+	query, err := sitter.NewQuery([]byte("(statement (define) (table (identifier) @def))"), bindings.GetLanguage())
 	if err != nil {
 		panic(err)
 	}

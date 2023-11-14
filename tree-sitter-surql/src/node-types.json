@@ -663,6 +663,10 @@
           "named": true
         },
         {
+          "type": "return",
+          "named": true
+        },
+        {
           "type": "statement",
           "named": true
         }
@@ -778,44 +782,6 @@
   },
   {
     "type": "create",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "identifier",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "define_field_statement",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "field",
-          "named": true
-        },
-        {
-          "type": "on",
-          "named": true
-        },
-        {
-          "type": "type",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "define_table_statement",
     "named": true,
     "fields": {},
     "children": {
@@ -1563,29 +1529,6 @@
         },
         {
           "type": "variable",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "invalid_define_field_statement",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "field",
-          "named": true
-        },
-        {
-          "type": "on",
-          "named": true
-        },
-        {
-          "type": "type",
           "named": true
         }
       ]
@@ -2390,6 +2333,117 @@
     }
   },
   {
+    "type": "return",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "addition_operation",
+          "named": true
+        },
+        {
+          "type": "and_operation",
+          "named": true
+        },
+        {
+          "type": "array",
+          "named": true
+        },
+        {
+          "type": "array_access",
+          "named": true
+        },
+        {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "bracketed_value",
+          "named": true
+        },
+        {
+          "type": "code_block",
+          "named": true
+        },
+        {
+          "type": "division_operation",
+          "named": true
+        },
+        {
+          "type": "equality_operation",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "greater_than_operation",
+          "named": true
+        },
+        {
+          "type": "greater_than_or_equal_to_operation",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "inequality_operation",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "less_than_operation",
+          "named": true
+        },
+        {
+          "type": "less_than_or_equal_to_operation",
+          "named": true
+        },
+        {
+          "type": "multiplication_operation",
+          "named": true
+        },
+        {
+          "type": "object",
+          "named": true
+        },
+        {
+          "type": "property_access",
+          "named": true
+        },
+        {
+          "type": "statement",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "subtraction_operation",
+          "named": true
+        },
+        {
+          "type": "variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "select",
     "named": true,
     "fields": {},
@@ -2524,6 +2578,10 @@
           "named": true
         },
         {
+          "type": "return",
+          "named": true
+        },
+        {
           "type": "statement",
           "named": true
         }
@@ -2551,15 +2609,11 @@
           "named": true
         },
         {
-          "type": "define_field_statement",
-          "named": true
-        },
-        {
-          "type": "define_table_statement",
-          "named": true
-        },
-        {
           "type": "delete",
+          "named": true
+        },
+        {
+          "type": "field",
           "named": true
         },
         {
@@ -2571,11 +2625,11 @@
           "named": true
         },
         {
-          "type": "invalid_define_field_statement",
+          "type": "limit",
           "named": true
         },
         {
-          "type": "limit",
+          "type": "on",
           "named": true
         },
         {
@@ -2588,6 +2642,14 @@
         },
         {
           "type": "skip",
+          "named": true
+        },
+        {
+          "type": "table",
+          "named": true
+        },
+        {
+          "type": "type",
           "named": true
         },
         {
@@ -2703,6 +2765,21 @@
         },
         {
           "type": "variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "table",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
           "named": true
         }
       ]
