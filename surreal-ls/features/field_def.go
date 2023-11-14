@@ -53,9 +53,15 @@ func GetTypeForField(field FieldDef, typeNode *sitter.Node, context *glsp.Contex
 				properties[fieldDef.Name()] = fieldDef.Type(context)
 			}
 			return ObjectType{Properties: properties}
+		}
+	} else {
+		if typeNode.NamedChild(0).Type() == "generic_type" {
+			outerType := typeNode.NamedChild(0).NamedChild(0).Content([]byte(data.Text))
+			innerType := GetTypeForField(field, typeNode.NamedChild(0).NamedChild(1), context)
 
-		default:
-			return ErrorType{}
+			if outerType == "array" {
+				return ArrayType{innerType}
+			}
 		}
 	}
 	return ErrorType{}

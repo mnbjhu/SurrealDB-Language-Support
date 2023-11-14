@@ -4,10 +4,12 @@ create thing content {
 };
 
 define table thing;
+define field some on thing type string;
+define field other on thing type array<int>;
 
 select "thing" from thing;
 
-select "thing" create thing;
+select "thing" from thing;
  
 select "thing" 
 from thing 
@@ -32,7 +34,16 @@ create thing content {
 define function some($some: string, $other: array<string>): string {
   return $some;
 }
-create something
+create something content {
+  thing: "new thing",
+  other: 123,
+  inner: {
+    another: "thing",
+    data: {
+      more: "thing"
+    }
+  }
+};
 let $new = select "thing" from thing where some = $some;
 select some from thing;
 
@@ -47,4 +58,5 @@ create thing content {
   other: [1, 2, 3]
 };
 
-create s
+create something content {
+}
