@@ -53,7 +53,7 @@ func main() {
 
 func save(context *glsp.Context, params *protocol.DidSaveTextDocumentParams) error {
 	context.Notify("window/logMessage", protocol.LogMessageParams{
-		Type:    protocol.MessageTypeInfo,
+		Type:    protocol.MessageTypeWarning,
 		Message: "File saved",
 	})
 
