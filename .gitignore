@@ -3,3 +3,5 @@
 
 ./tree-sitter-surql/src/parser.c
 ./tree-sitter-surql/src/tree_sitter/parser.h
+
+./surreal-ls/surql-lsp
