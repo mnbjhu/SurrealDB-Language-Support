@@ -1,6 +1,9 @@
 package features
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 type ValueType interface {
 	IsInstanceOf(ValueType) bool
@@ -106,7 +109,11 @@ func (s ObjectType) IsInstanceOf(t ValueType) bool {
 		return false
 	}
 	for key, value := range s.Properties {
-		if !value.IsInstanceOf(obj.Properties[key]) {
+		expected := obj.Properties[key]
+		if expected == nil {
+			return false
+		}
+		if !value.IsInstanceOf(expected) {
 			return false
 		}
 	}
@@ -114,7 +121,20 @@ func (s ObjectType) IsInstanceOf(t ValueType) bool {
 }
 
 func (s ObjectType) String() string {
-	return "object"
+	body := ""
+	for key, value := range s.Properties {
+		body += fmt.Sprintf("\n%v: %v", key, value.String())
+	}
+	return fmt.Sprintf("{%v\n}", indent(body))
+}
+
+func indent(text string) string {
+	lines := strings.Split(text, "\n")
+	ret := ""
+	for _, line := range lines {
+		ret += "\t" + line + "\n"
+	}
+	return strings.TrimSuffix(ret, "\n")
 }
 
 type NothingType struct{}

@@ -5,7 +5,7 @@ import (
 	"fmt"
 
 	"github.com/mnbjhu/surql-lsp/data"
-	"github.com/mnbjhu/surql-lsp/features/diagnostics"
+	"github.com/mnbjhu/surql-lsp/features"
 	sitter "github.com/smacker/go-tree-sitter"
 	"github.com/tliron/glsp"
 	protocol "github.com/tliron/glsp/protocol_3_16"
@@ -41,6 +41,6 @@ func DidChange(ctx *glsp.Context, params *protocol.DidChangeTextDocumentParams) 
 		}
 		data.Tree = newTree
 	}
-	diagnostics.UpdateDiagnostics(ctx, params.TextDocument.URI)
+	features.UpdateDiagnostics(ctx, params.TextDocument.URI)
 	return nil
 }

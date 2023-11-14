@@ -4,7 +4,7 @@ import (
 	"context"
 
 	"github.com/mnbjhu/surql-lsp/data"
-	"github.com/mnbjhu/surql-lsp/features/diagnostics"
+	"github.com/mnbjhu/surql-lsp/features"
 	"github.com/tliron/glsp"
 	protocol "github.com/tliron/glsp/protocol_3_16"
 )
@@ -16,6 +16,6 @@ func DidOpen(ctx *glsp.Context, params *protocol.DidOpenTextDocumentParams) erro
 	}
 	data.Tree = newTree
 	data.Text = params.TextDocument.Text
-	diagnostics.UpdateDiagnostics(ctx, params.TextDocument.URI)
+	features.UpdateDiagnostics(ctx, params.TextDocument.URI)
 	return nil
 }

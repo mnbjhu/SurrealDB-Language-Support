@@ -1,7 +1,6 @@
 package features
 
 import (
-	"github.com/mnbjhu/surql-lsp/data"
 	sitter "github.com/smacker/go-tree-sitter"
 	"github.com/tliron/glsp"
 	protocol "github.com/tliron/glsp/protocol_3_16"
@@ -43,7 +42,7 @@ func Completion(context *glsp.Context, params *protocol.CompletionParams) (any, 
 			return completeErrorItem(current_node.Parent()), nil
 		}
 	case "identifier":
-		return completeIdentifierItem(current_node), nil
+		return completeIdentifierItem(current_node, context), nil
 	}
 
 	return nil, nil
@@ -133,7 +132,7 @@ func hasTransform(node *sitter.Node, transform string) bool {
 	return false
 }
 
-func completeIdentifierItem(node *sitter.Node) []protocol.CompletionItem {
+func completeIdentifierItem(node *sitter.Node, context *glsp.Context) []protocol.CompletionItem {
 	parent := node.Parent()
 	parent_type := parent.Type()
 	completions := []protocol.CompletionItem{}
@@ -148,11 +147,18 @@ func completeIdentifierItem(node *sitter.Node) []protocol.CompletionItem {
 	}
 	if slices.Contains([]string{"from", "update", "create", "delete"}, parent_type) {
 		kind := protocol.CompletionItemKindStruct
-		for _, table := range FindTableDefinitions() {
-			name := table.Content([]byte(data.Text))
+		for _, table := range FindAllTableDefs() {
+			context.Notify("window/logMessage", protocol.LogMessageParams{
+				Type:    protocol.MessageTypeWarning,
+				Message: "Adding completion for " + table.Node.String(),
+			})
+
+			name := table.Name()
+			type_name := table.Type(context).String()
 			completions = append(completions, protocol.CompletionItem{
-				Label: name,
-				Kind:  &kind,
+				Label:  name,
+				Kind:   &kind,
+				Detail: &type_name,
 			})
 		}
 	}
