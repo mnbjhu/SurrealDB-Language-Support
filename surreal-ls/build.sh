@@ -1,13 +1,14 @@
 #!/bin/bash
 
-(
-	cd ../tree-sitter-surql || echo "tree-sitter-surql not found" && exit 1
-	tree-sitter generate
-)
+echo "Generating tree-sitter parser"
+cd ../tree-sitter-surql || exit
+tree-sitter generate
+cd ../surreal-ls || exit
 
-mkdir -p bindings/tree_sitter || exit 1
+echo "Copying tree-sitter parser"
+mkdir -p bindings/tree_sitter
+cp -f ../tree-sitter-surql/src/parser.c ./bindings/parser.c
+cp -f ../tree-sitter-surql/src/tree_sitter/parser.h ./bindings/tree_sitter/parser.h
 
-cp -f ../tree-sitter-surql/src/parser.c ./bindings/parser.c || exit 1
-cp -f ../tree-sitter-surql/src/tree_sitter/parser.h ./bindings/tree_sitter/parser.h || exit 1
-
+echo "Building"
 go build

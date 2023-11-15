@@ -1,8 +1,6 @@
 package features
 
 import (
-	"fmt"
-
 	"github.com/mnbjhu/surql-lsp/bindings"
 	"github.com/mnbjhu/surql-lsp/data"
 	sitter "github.com/smacker/go-tree-sitter"
@@ -225,25 +223,6 @@ func handleContentPart(node *sitter.Node, context *glsp.Context, table TableDef)
 	}
 
 	content := node.NamedChild(0)
-
-	content_type := ParseType(content)
 	expected_type := table.Type(context)
-
-	context.Notify("window/logMessage", protocol.LogMessageParams{
-		Type:    protocol.MessageTypeWarning,
-		Message: fmt.Sprintf("Found %v content type, but expected %v", content_type, expected_type),
-	})
-
-	if !content_type.IsInstanceOf(expected_type) {
-		return []protocol.Diagnostic{{
-			Message:  "Expected: " + expected_type.String() + " Found: " + content_type.String(),
-			Severity: &err,
-			Range: protocol.Range{
-				Start: ParsePosition(content.StartPoint()),
-				End:   ParsePosition(content.EndPoint()),
-			},
-		}}
-	}
-
-	return []protocol.Diagnostic{}
+	return expected_type.HighlightIssues(content)
 }

@@ -46,6 +46,7 @@ func main() {
 		TextDocumentDefinition: features.TextDocumentDefinition,
 		TextDocumentReferences: features.TextDocumentReferences,
 		TextDocumentCompletion: features.Completion,
+		TextDocumentFormatting: features.Formatting,
 	}
 	server := server.NewServer(&Handler, lsName, false)
 	server.RunStdio()
@@ -85,6 +86,7 @@ func initialize(context *glsp.Context, params *protocol.InitializeParams) (any, 
 			WorkDoneProgress: &workDoneProgress,
 		},
 	}
+	capabilities.DocumentFormattingProvider = true
 
 	return protocol.InitializeResult{
 		Capabilities: capabilities,

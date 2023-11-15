@@ -23,7 +23,7 @@ func ParseArrayType(node *sitter.Node) ValueType {
 	if node.NamedChildCount() == 0 {
 		return ArrayType{NothingType{}}
 	}
-	innerType := ParsePrimitiveType(node.NamedChild(0))
+	innerType := ParseType(node.NamedChild(0))
 	for i := 0; i < int(node.NamedChildCount()); i++ {
 		if ParseType(node.NamedChild(i)).IsInstanceOf(innerType) {
 			continue

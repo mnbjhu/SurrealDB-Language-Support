@@ -175,3 +175,10 @@ func ParsePosition(point sitter.Point) protocol.Position {
 		Character: point.Column,
 	}
 }
+
+func GetRange(node *sitter.Node) protocol.Range {
+	return protocol.Range{
+		Start: ParsePosition(node.StartPoint()),
+		End:   ParsePosition(node.EndPoint()),
+	}
+}

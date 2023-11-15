@@ -151,7 +151,7 @@ func FindTableDef(table string) []TableDef {
 }
 
 func FindFieldDefsForTable(table string) []FieldDef {
-	query, err := sitter.NewQuery([]byte("((define) . (field (field_name) @field_name) (on (identifier) @table_name))"), bindings.GetLanguage())
+	query, err := sitter.NewQuery([]byte("((define) . (field (field_name) @field_name) (on (identifier) @table_name) (type (type_identifier)))"), bindings.GetLanguage())
 	if err != nil {
 		panic(err)
 	}
@@ -173,7 +173,7 @@ func FindFieldDefsForTable(table string) []FieldDef {
 }
 
 func FindFieldDefsForField(table string, field string) []FieldDef {
-	query, err := sitter.NewQuery([]byte("((define) . (field (field_name) @field_name) (on (identifier) @table_name))"), bindings.GetLanguage())
+	query, err := sitter.NewQuery([]byte("((define) . (field (field_name) @field_name) (on (identifier) @table_name) (type (type_identifier)))"), bindings.GetLanguage())
 	if err != nil {
 		panic(err)
 	}

@@ -1,62 +1,16 @@
-create thing content {
-  some: "new thing",
-  other: [1, 2, 3]
+create thing 
+content {
+	some: "string",
+	other: [1,2,3],
+	more: {
+		foo: "bar"
+	}
 };
 
 define table thing;
 define field some on thing type string;
 define field other on thing type array<int>;
+define field more on thing type object;
+define field more.foo on thing type string;
 
-select "thing" from thing;
 
-select "thing" from thing;
- 
-select "thing" 
-from thing 
-where some_bool and some_int > 5 + 6 / 2 = true;
-
-select "thing" from thing where true
-  order by 123, "something", $asda
-  limit 10 skip 20;
-
-define table something;
-define field thing on something type string;
-define field other on something type int;
-define field inner on something type object;
-define field inner.another on something type string;
-define field inner.data on something type object;
-define field inner.data.more on something type string;
-
-create thing content {
-  some: "new thing",
-};
-
-define function some($some: string, $other: array<string>): string {
-  return $some;
-}
-create something content {
-  thing: "new thing",
-  other: 123,
-  inner: {
-    another: "thing",
-    data: {
-      more: "thing"
-    }
-  }
-};
-let $new = select "thing" from thing where some = $some;
-select some from thing;
-
-select some 
-from thing;
-select some
-from something;
-select some from something;
-
-create thing content {
-  some: "new thing",
-  other: [1, 2, 3]
-};
-
-create something content {
-}
