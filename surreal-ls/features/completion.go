@@ -1,6 +1,8 @@
 package features
 
 import (
+	"github.com/mnbjhu/surql-lsp/data"
+	"github.com/mnbjhu/surql-lsp/model/definitions"
 	sitter "github.com/smacker/go-tree-sitter"
 	"github.com/tliron/glsp"
 	protocol "github.com/tliron/glsp/protocol_3_16"
@@ -24,7 +26,7 @@ var tranforms = []string{
 	"skip",
 }
 
-var types = []string{
+var TypeNames = []string{
 	"string",
 	"int",
 	"float",
@@ -35,7 +37,7 @@ var types = []string{
 }
 
 func Completion(context *glsp.Context, params *protocol.CompletionParams) (any, error) {
-	current_node := FindNodeByPosition(params.Position)
+	current_node := data.FindNodeByPosition(params.Position)
 	switch current_node.Type() {
 	case "ERROR":
 		if current_node.Parent().Type() == "ERROR" {
@@ -138,7 +140,7 @@ func completeIdentifierItem(node *sitter.Node, context *glsp.Context) []protocol
 	completions := []protocol.CompletionItem{}
 	if parent_type == "type_identifier" {
 		kind := protocol.CompletionItemKindTypeParameter
-		for _, t := range types {
+		for _, t := range TypeNames {
 			completions = append(completions, protocol.CompletionItem{
 				Label: t,
 				Kind:  &kind,
@@ -147,7 +149,7 @@ func completeIdentifierItem(node *sitter.Node, context *glsp.Context) []protocol
 	}
 	if slices.Contains([]string{"from", "update", "create", "delete"}, parent_type) {
 		kind := protocol.CompletionItemKindStruct
-		for _, table := range FindAllTableDefs() {
+		for _, table := range definitions.FindAllTableDefs() {
 			context.Notify("window/logMessage", protocol.LogMessageParams{
 				Type:    protocol.MessageTypeWarning,
 				Message: "Adding completion for " + table.Node.String(),

@@ -1,13 +1,10 @@
 package main
 
 import (
-	"log"
-	"os"
-
 	"github.com/mnbjhu/surql-lsp/bindings"
 	"github.com/mnbjhu/surql-lsp/data"
 	"github.com/mnbjhu/surql-lsp/features"
-	"github.com/mnbjhu/surql-lsp/features/filesync"
+	"github.com/mnbjhu/surql-lsp/filesync"
 	sitter "github.com/smacker/go-tree-sitter"
 	"github.com/tliron/glsp"
 	protocol "github.com/tliron/glsp/protocol_3_16"
@@ -26,13 +23,6 @@ var (
 )
 
 func main() {
-	// Create a logger which outputs to '/tmp/mylang.log'
-
-	file, err := os.OpenFile("/tmp/mylang.log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
-	if err != nil {
-		log.Fatal(err)
-	}
-	data.Logger = *log.New(file, "", log.LstdFlags)
 	data.Parser = sitter.NewParser()
 	data.Parser.SetLanguage(bindings.GetLanguage())
 	Handler = protocol.Handler{

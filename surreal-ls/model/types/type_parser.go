@@ -1,4 +1,4 @@
-package features
+package types
 
 import (
 	"github.com/mnbjhu/surql-lsp/data"

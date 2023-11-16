@@ -3,6 +3,8 @@ package features
 import (
 	"github.com/mnbjhu/surql-lsp/bindings"
 	"github.com/mnbjhu/surql-lsp/data"
+	"github.com/mnbjhu/surql-lsp/model/definitions"
+	"github.com/mnbjhu/surql-lsp/util"
 	sitter "github.com/smacker/go-tree-sitter"
 	"github.com/tliron/glsp"
 	protocol "github.com/tliron/glsp/protocol_3_16"
@@ -39,10 +41,7 @@ func handleUnknownStatements() []protocol.Diagnostic {
 				protocol.Diagnostic{
 					Message:  "Unexpected Statement",
 					Severity: &errType,
-					Range: protocol.Range{
-						Start: ParsePosition(c.Node.StartPoint()),
-						End:   ParsePosition(c.Node.EndPoint()),
-					},
+					Range:    util.GetRange(c.Node),
 				},
 			)
 		}
@@ -82,10 +81,7 @@ func handleSelectPart(node *sitter.Node, context *glsp.Context) []protocol.Diagn
 		return []protocol.Diagnostic{{
 			Message:  "Expected: 'projections'",
 			Severity: &err,
-			Range: protocol.Range{
-				Start: ParsePosition(node.StartPoint()),
-				End:   ParsePosition(node.EndPoint()),
-			},
+			Range:    util.GetRange(node),
 		}}
 	}
 
@@ -95,10 +91,7 @@ func handleSelectPart(node *sitter.Node, context *glsp.Context) []protocol.Diagn
 		return []protocol.Diagnostic{{
 			Message:  "Expected: 'projections' Found: " + projections.String(),
 			Severity: &err,
-			Range: protocol.Range{
-				Start: ParsePosition(node.StartPoint()),
-				End:   ParsePosition(node.EndPoint()),
-			},
+			Range:    util.GetRange(projections),
 		}}
 	}
 
@@ -107,10 +100,7 @@ func handleSelectPart(node *sitter.Node, context *glsp.Context) []protocol.Diagn
 		return []protocol.Diagnostic{{
 			Message:  "Expected: 'from'",
 			Severity: &err,
-			Range: protocol.Range{
-				Start: ParsePosition(node.EndPoint()),
-				End:   ParsePosition(node.EndPoint()),
-			},
+			Range:    util.GetEndRange(node),
 		}}
 	}
 	return handleFromPart(from, context)
@@ -122,10 +112,7 @@ func handleFromPart(node *sitter.Node, context *glsp.Context) []protocol.Diagnos
 		return []protocol.Diagnostic{{
 			Message:  "Expected: 'table'",
 			Severity: &err,
-			Range: protocol.Range{
-				Start: ParsePosition(node.EndPoint()),
-				End:   ParsePosition(node.EndPoint()),
-			},
+			Range:    util.GetEndRange(node),
 		}}
 	}
 
@@ -135,22 +122,16 @@ func handleFromPart(node *sitter.Node, context *glsp.Context) []protocol.Diagnos
 		return []protocol.Diagnostic{{
 			Message:  "Expected: 'table' Found: " + table.String(),
 			Severity: &err,
-			Range: protocol.Range{
-				Start: ParsePosition(node.StartPoint()),
-				End:   ParsePosition(node.EndPoint()),
-			},
+			Range:    util.GetRange(table),
 		}}
 	}
 
-	table_def := FindTableDef(table.Content([]byte(data.Text)))
+	table_def := definitions.FindTableDef(table.Content([]byte(data.Text)))
 	if len(table_def) == 0 {
 		return []protocol.Diagnostic{{
 			Message:  "Table not found: " + table.Content([]byte(data.Text)),
 			Severity: &err,
-			Range: protocol.Range{
-				Start: ParsePosition(table.StartPoint()),
-				End:   ParsePosition(table.EndPoint()),
-			},
+			Range:    util.GetRange(table),
 		}}
 	}
 	return []protocol.Diagnostic{}
@@ -162,10 +143,7 @@ func handleCreatePart(node *sitter.Node, context *glsp.Context) []protocol.Diagn
 		return []protocol.Diagnostic{{
 			Message:  "Expected: table name",
 			Severity: &err,
-			Range: protocol.Range{
-				Start: ParsePosition(node.EndPoint()),
-				End:   ParsePosition(node.EndPoint()),
-			},
+			Range:    util.GetRange(node),
 		}}
 	}
 
@@ -175,23 +153,17 @@ func handleCreatePart(node *sitter.Node, context *glsp.Context) []protocol.Diagn
 		return []protocol.Diagnostic{{
 			Message:  "Expected: 'table' Found: " + table.String(),
 			Severity: &err,
-			Range: protocol.Range{
-				Start: ParsePosition(node.StartPoint()),
-				End:   ParsePosition(node.EndPoint()),
-			},
+			Range:    util.GetRange(table),
 		}}
 	}
 
 	table_name := table.Content([]byte(data.Text))
-	table_defs := FindTableDef(table_name)
+	table_defs := definitions.FindTableDef(table_name)
 	if len(table_defs) == 0 {
 		return []protocol.Diagnostic{{
 			Message:  "Table not found: " + table_name,
 			Severity: &err,
-			Range: protocol.Range{
-				Start: ParsePosition(table.StartPoint()),
-				End:   ParsePosition(table.EndPoint()),
-			},
+			Range:    util.GetRange(table),
 		}}
 	}
 
@@ -200,25 +172,19 @@ func handleCreatePart(node *sitter.Node, context *glsp.Context) []protocol.Diagn
 		return []protocol.Diagnostic{{
 			Message:  "Expected: 'content'",
 			Severity: &err,
-			Range: protocol.Range{
-				Start: ParsePosition(node.EndPoint()),
-				End:   ParsePosition(node.EndPoint()),
-			},
+			Range:    util.GetEndRange(node),
 		}}
 	}
 	return handleContentPart(content, context, table_defs[0])
 }
 
-func handleContentPart(node *sitter.Node, context *glsp.Context, table TableDef) []protocol.Diagnostic {
+func handleContentPart(node *sitter.Node, context *glsp.Context, table definitions.TableDef) []protocol.Diagnostic {
 	err := protocol.DiagnosticSeverityError
 	if node.NamedChildCount() == 0 {
 		return []protocol.Diagnostic{{
 			Message:  "Expected: 'content'",
 			Severity: &err,
-			Range: protocol.Range{
-				Start: ParsePosition(node.EndPoint()),
-				End:   ParsePosition(node.EndPoint()),
-			},
+			Range:    util.GetRange(node),
 		}}
 	}
 

@@ -12,11 +12,9 @@ import (
 )
 
 func DidChange(ctx *glsp.Context, params *protocol.DidChangeTextDocumentParams) error {
-	data.Logger.Printf("Change: %v", params.ContentChanges)
 	for _, change := range params.ContentChanges {
 		change := change.(protocol.TextDocumentContentChangeEvent)
 		start, end := change.Range.IndexesIn(data.Text)
-		data.Logger.Printf("Change: %v, start: %v, end: %v", change, start, end)
 		data.Text = fmt.Sprintf("%s%s%s", data.Text[:start], change.Text, data.Text[end:])
 		data.Tree.Edit(sitter.EditInput{
 			StartIndex:  uint32(start),

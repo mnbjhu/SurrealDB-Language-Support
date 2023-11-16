@@ -3,6 +3,7 @@ package features
 import (
 	"github.com/mnbjhu/surql-lsp/bindings"
 	"github.com/mnbjhu/surql-lsp/data"
+	"github.com/mnbjhu/surql-lsp/util"
 	sitter "github.com/smacker/go-tree-sitter"
 	"github.com/tliron/glsp"
 	protocol "github.com/tliron/glsp/protocol_3_16"
@@ -49,16 +50,16 @@ func formatObjects(context *glsp.Context) ([]protocol.TextEdit, error) {
 			if i == 0 {
 				found = append(found, protocol.TextEdit{
 					Range: protocol.Range{
-						Start: ParsePosition(start),
-						End:   ParsePosition(child.StartPoint()),
+						Start: util.ParsePosition(start),
+						End:   util.ParsePosition(child.StartPoint()),
 					},
 					NewText: "\n\t" + indent,
 				})
 			} else {
 				found = append(found, protocol.TextEdit{
 					Range: protocol.Range{
-						Start: ParsePosition(start),
-						End:   ParsePosition(child.StartPoint()),
+						Start: util.ParsePosition(start),
+						End:   util.ParsePosition(child.StartPoint()),
 					},
 					NewText: ",\n\t" + indent,
 				})
@@ -67,8 +68,8 @@ func formatObjects(context *glsp.Context) ([]protocol.TextEdit, error) {
 			if i == int(object.NamedChildCount())-1 {
 				found = append(found, protocol.TextEdit{
 					Range: protocol.Range{
-						Start: ParsePosition(start),
-						End:   ParsePosition(object.EndPoint()),
+						Start: util.ParsePosition(start),
+						End:   util.ParsePosition(object.EndPoint()),
 					},
 					NewText: "\n" + indent + "}",
 				})
