@@ -13,6 +13,10 @@ type TableDef struct {
 	Node *sitter.Node
 }
 
+func (s TableDef) NameNode() (*sitter.Node){
+	return s.Node.NamedChild(1).NamedChild(0)
+}
+
 func (s TableDef) Name() string {
 	return s.Node.NamedChild(1).NamedChild(0).Content([]byte(data.Text))
 }

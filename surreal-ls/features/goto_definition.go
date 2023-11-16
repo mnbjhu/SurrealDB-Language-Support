@@ -11,6 +11,10 @@ import (
 
 func TextDocumentDefinition(context *glsp.Context, params *protocol.DefinitionParams) (any, error) {
 	node := data.FindNodeByPosition(params.Position)
+	context.Notify("window/logMessage", protocol.LogMessageParams {
+		Message: "Finding definition for element " + node.String(),
+		Type: protocol.MessageTypeWarning,
+	})
 	if node.Type() == "identifier" {
 		switch references.GetIdentifierType(node) {
 		case "table":
@@ -20,7 +24,7 @@ func TextDocumentDefinition(context *glsp.Context, params *protocol.DefinitionPa
 			}
 			return protocol.Location{
 				URI:   params.TextDocument.URI,
-				Range: util.GetRange(defs[0].Node),
+				Range: util.GetRange(defs[0].NameNode()),
 			}, nil
 		}
 	}

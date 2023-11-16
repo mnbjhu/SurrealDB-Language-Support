@@ -37,6 +37,7 @@ func main() {
 		TextDocumentReferences: features.TextDocumentReferences,
 		TextDocumentCompletion: features.Completion,
 		TextDocumentFormatting: features.Formatting,
+		// TextDocumentDocumentSymbol: features.GetDocumentSymbols,
 	}
 	server := server.NewServer(&Handler, lsName, false)
 	server.RunStdio()

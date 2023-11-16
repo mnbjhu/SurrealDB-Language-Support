@@ -10,7 +10,7 @@ func GetIdentifierType(node *sitter.Node) string {
 	switch parent.Type() {
 	case "type_identifier", "generic_type":
 		return "type"
-	case "from", "create", "update", "delete", "table":
+	case "from", "create", "update", "delete", "table", "on":
 		return "table"
 	case "function_identifier":
 		return "function"

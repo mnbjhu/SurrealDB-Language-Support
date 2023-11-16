@@ -13,4 +13,11 @@ define field other on thing type array<int>;
 define field more on thing type object;
 define field more.foo on thing type string;
 
+let $thing = "My Thing";
+
+
+define function fn::my_function($some: string) {
+	let $another = fn::other();
+	return "Hello " + $some;
+};
 
